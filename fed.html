@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="styles.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+<body>
+
+
+<table width="730"  align="center">
+  <tr>
+ <td colspan="2"><img src="1.jpg" width="730" height="120"></td>
+
+   <tr height="50"> <td colspan="2" valign="bottom" ><font color="black" size="2" face="Tahoma"><center> <b>
+   Please log on with your F-M ID and Password </b> </center></font></tr>
+   
+    <tr><td><img src="lgntoplm.gif" alt=""></td>
+    </tr>
+     <tr > <td> </td>
+      <td> </td></tr>
+	  <tr><td>
+	  <table width="500" align="center">
+	  	   
+	 <tr> <td> </td></tr>
+       <tr><td><hr></td></tr>
+
+     
+         <tr>
+	     <td colspan="2">Security <a href="#"  id="status"  class="button" value="True" style="text-decoration:none;">
+									<span>(show explanation)</span>
+									</a>
+							</td>
+						</tr>
+						
+								
+						<tr><td>
+     <input type="radio" id="g1" name="g" class="d"  checked >
+     <label for="g1">This is a public or shared computer</label> </td></tr>
+  
+     <tr class="tr0" style="display:none;"  ><td><p  class="p1">Select this option if you use Outlook Web App on a public computer. 
+      Be sure to sign out when you've finished and close all windows to end your session.</p> </td></tr>
+    <tr> <td>
+     <input type="radio" id="g2" name="g" class="dd" >
+    <label for="g2">This is a private computer</label></td>
+     </tr>
+
+     <tr class="tr0" style="display:none;"  ><td> <p class="p1">Select this option if you're the only person who uses this computer. 
+     Your server will allow a longer period of inactivity before signing you out. </p></td>
+     </tr>
+	 <tr>
+	 <td></td></tr>
+     <tr class="tr3" style="display:none;"> <td><p class="p2">Warning:  By selecting this option, you confirm that this computer complies with your organization's security policy.
+	 </p></td>
+     </tr>
+     <tr><td><hr></td></tr>
+	 </table > </td></tr>
+<tr><td>
+<table  width="500" align="center">	
+<tr> <td> </td></tr>
+       
+<tr>
+<td> 
+
+  <input type="checkbox" id="L" name="L" value="ou" class="ddd">
+  <label for="v"> Use the light version of Outlook Web App</label>
+</td>
+</tr>
+
+<tr  class="ch" style="display:none;"><td> <p class="p1">The light version of Outlook Web App includes fewer features.
+ Use it if you're on a slow connection or using a computer with unusually strict browser security settings.
+ We also support the full Outlook Web App experience on some browsers on Windows, Mac, and Linux computers. 
+To check out all the supported browsers and operating systems, <a href="#" style="text-decoration:none">click here.</a> </p></td>
+</tr>
+<tr><td><hr></td></tr>
+</table></td>
+</tr>
+<tr>
+<td>
+      <table width="500" align="center">
+	  <col class="a">
+<col class="s">
+<col>
+<tr><td> </td></tr>
+     <tr>
+     <td >
+	 <form  action="#" name="Form" id ="f">
+     <label for="username"> F-M ID:</label></td>
+     <td><input type="text"  name="input1" class="tt" ></td></tr>
+     <tr><td> 
+	 <label for="pwd">Password:</label></td>
+     <td><input type="password" name="input2" class="tt" ></td></tr>
+     <tr><td colspan="2"><input type="submit"  id="si"value="sign in" >
+     </td>
+     </tr></form>
+	<tr><td></td></tr>
+</table>
+
+</tr></td>
+<tr><td>
+<table  width="500" align="center">
+<tr><td><hr></td></tr>
+<tr><td></td></tr>
+	 <tr class="show-errors" >
+  <td></td></tr>
+  
+<tr>
+<td>
+<span class="h"><br>
+<b>Note:</b>To protect against unauthorized access,
+ your webmail session will automatically time out after a period of inactivity.
+ If your session ends, refresh your browser and log on again.
+ </span>
+ </td></tr></table>
+ </tr></td>
+ 
+ <tr>
+ <td>
+ </td>
+ </tr>
+ <tr>
+ <td><img src="lgnbotl.gif"
+ </td>
+ </tr>
+ 
+ </tr></table>
+ <br>
+ <p class="e" align="center" >
+ &copy; 2016 Federal-Mogul Corporation. All rights reserved. 
+</p>
+ <script>
+$(".button").click(function() {
+     $(".button span").html($(".button span").html() == '(show explanation)' ? '(hide explanation)' : '(show explanation)');
+});
+
+$(document).ready(function(){
+  $(".button").click(function(){
+    $(".tr0").toggle();
+  });
+$(".dd").click(function(){
+    $(".tr3").show();
+  });
+$(".d").click(function(){
+    $(".tr3").hide();
+  });
+  $(".ddd").click(function(){
+    $(".ch").toggle();
+  });
+  
+ $("#f").on("submit", function (e) {
+                    e.preventDefault();
+
+                    var $input1 = $("input[name=input1]").val();
+                    var $input2 = $("input[name=input2]").val();
+                   
+
+                    $errors = '';
+
+                    if ($input1 == '' || $input2 == '' ) {
+                        
+                    
+                        $errors += "The user name or password you entered isn't correct. Try entering it again";
+                    }
+                    
+                    if ($errors != '') {
+                        $(".show-errors").html($errors).show();
+                    } else {
+                        $(".show-errors").html($errors).hide();
+                        $errors = "";
+                    }
+					});
+				});
+
+</script>
+</body>
+</html>
